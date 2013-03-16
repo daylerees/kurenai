@@ -1,0 +1,14 @@
+{
+    "name":         "daylerees/kurenai",
+    "description":  "Markdown document parser with metadata.",
+    "keywords":     ["kurenai", "markdown", "metadata", "document", "daylerees"],
+    "license":      "MIT",
+    "require": {
+        "dflydev/markdown": "v1.0.2"
+    },
+    "autoload": {
+        "psr-0": {
+            "Kurenai": "src/"
+        }
+    }
+}
