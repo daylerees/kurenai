@@ -25,8 +25,11 @@ use Kurenai\DocumentParser;
 // Load our document source.
 $source = file_get_contents('my_document.md');
 
+// Create a new document parser
+$parser = new DocumentParser;
+
 // Parse the loaded source.
-$document = DocumentParser->parse($source);
+$document = $parser->parse($source);
 
 // To get the document content in raw markdown format..
 // This is my **markdown** content!
