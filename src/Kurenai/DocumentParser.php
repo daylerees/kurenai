@@ -30,7 +30,7 @@ class DocumentParser
     public function parse($source)
     {
         $content = $this->parseContent($source);
-        $metadata = $this->parseMetadata($source);
+        $metadata = $this->parseMetadata($this->parseHeader($source));
         return $this->buildDocument($content, $metadata);
     }
 
