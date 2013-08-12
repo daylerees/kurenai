@@ -88,6 +88,16 @@ class DocumentParserTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(array('foo' => 'bar', 'baz' => 'bar:bar'), $s);
     }
 
+    public function testMetadataCantBeParsedFromContent()
+    {
+        $parser = new DocumentParser();
+        $file = file_get_contents(__DIR__.'/fixtures/document_04.md');
+        $document = $parser->parse($file);
+        $meta = $document->get();
+        $this->assertCount(2, $meta);
+        $this->assertSame(array('foo' => 'bar', 'baz' => 'boo'), $meta);
+    }
+
     public function testBuildDocumentCreatesDocumentCorrectly()
     {
         $d = new DocumentParser();
