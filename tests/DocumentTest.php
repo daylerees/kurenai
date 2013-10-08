@@ -25,6 +25,14 @@ class DocumentTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($e, $d->getHtmlContent());
     }
 
+    public function testDocumentCanParseExtraMarkdown()
+    {
+        $document = new Document();
+        $document->setContent("~~~\nCode Block\n~~~");
+        $expected = "<pre><code>Code Block\n</code></pre>\n";
+        $this->assertEquals($expected, $document->getHtmlContent(true));
+    }
+
     public function testDocumentMetadataCanBeSet()
     {
         $d = new Document();
