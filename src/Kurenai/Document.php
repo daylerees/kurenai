@@ -3,6 +3,7 @@
 namespace Kurenai;
 
 use dflydev\markdown\MarkdownParser;
+use dflydev\markdown\MarkdownExtraParser;
 
 class Document
 {
@@ -45,11 +46,12 @@ class Document
     /**
      * Get the document content in HTML format.
      *
+     * @param  bool  $extra  Enable extra Markdown parsing features.
      * @return string
      */
-    public function getHtmlContent()
+    public function getHtmlContent($extra = false)
     {
-        $markdownParser = new MarkdownParser();
+        $markdownParser = $extra ? new MarkdownExtraParser() : new MarkdownParser();
         return $markdownParser->transformMarkdown($this->content);
     }
 
