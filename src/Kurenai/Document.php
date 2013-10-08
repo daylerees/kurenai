@@ -11,14 +11,14 @@ class Document
      *
      * @var string
      */
-    private $content;
+    protected $content;
 
     /**
      * An array of document metadata.
      *
      * @var array
      */
-    private $metadata = array();
+    protected $metadata = array();
 
     /**
      * Set the document content in Markdown format.
