@@ -4,7 +4,7 @@
     "keywords":     ["kurenai", "markdown", "metadata", "document", "daylerees"],
     "license":      "MIT",
     "require": {
-        "dflydev/markdown": "v1.0.2"
+        "dflydev/markdown": "1.0.*"
     },
     "autoload": {
         "psr-0": {
