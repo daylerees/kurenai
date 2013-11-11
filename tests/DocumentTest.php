@@ -28,7 +28,7 @@ class DocumentTest extends PHPUnit_Framework_TestCase
 
     public function testDocumentCanParseExtraMarkdown()
     {
-        $document = new Document(new Kurenai\Parser\DflydevMarkdownExtra);
+        $document = new Document(new DflydevMarkdownExtra);
         $document->setContent("~~~\nCode Block\n~~~");
         $expected = "<pre><code>Code Block\n</code></pre>\n";
         $this->assertEquals($expected, $document->getHtmlContent(true));
