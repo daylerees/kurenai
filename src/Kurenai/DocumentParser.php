@@ -29,8 +29,7 @@ class DocumentParser
     protected $documentResolver;
 
     /**
-     * Instantiate an instance.
-     *
+     * Instantiate an instance optionally passing in a Documemt object resolver.
      */
     public function __construct(callable $documentResolver = null)
     {

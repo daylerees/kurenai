@@ -26,7 +26,7 @@ class Document
     protected $markdownParser;
 
     /**
-     * Instantiate an instance.
+     * Instantiate an instance optionally injecting a markdown parser implementation.
      */
     public function __construct(MarkdownParserInterface $markdownParser = null) {
         if ($markdownParser === null) {
@@ -61,10 +61,9 @@ class Document
     /**
      * Get the document content in HTML format.
      *
-     * @param  bool  $extra  Enable extra Markdown parsing features.
      * @return string
      */
-    public function getHtmlContent($extra = false)
+    public function getHtmlContent()
     {
         return $this->markdownParser->transformMarkdown($this->content);
     }
