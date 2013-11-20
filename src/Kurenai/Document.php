@@ -2,9 +2,6 @@
 
 namespace Kurenai;
 
-use dflydev\markdown\MarkdownParser;
-use dflydev\markdown\MarkdownExtraParser;
-
 class Document
 {
     /**
@@ -20,6 +17,24 @@ class Document
      * @var array
      */
     protected $metadata = array();
+
+    /**
+     * An Kurenai\MarkdownParserInterface implementation
+     *
+     * @var Kurenai\MarkdownParserInterface
+     */
+    protected $markdownParser;
+
+    /**
+     * Instantiate an instance optionally injecting a markdown parser implementation.
+     */
+    public function __construct(MarkdownParserInterface $markdownParser = null) {
+        if ($markdownParser === null) {
+            $this->markdownParser = new Parser\DflydevMarkdown;
+        } else {
+            $this->markdownParser = $markdownParser;
+        }
+    }
 
     /**
      * Set the document content in Markdown format.
@@ -46,13 +61,11 @@ class Document
     /**
      * Get the document content in HTML format.
      *
-     * @param  bool  $extra  Enable extra Markdown parsing features.
      * @return string
      */
-    public function getHtmlContent($extra = false)
+    public function getHtmlContent()
     {
-        $markdownParser = $extra ? new MarkdownExtraParser() : new MarkdownParser();
-        return $markdownParser->transformMarkdown($this->content);
+        return $this->markdownParser->transformMarkdown($this->content);
     }
 
     /**

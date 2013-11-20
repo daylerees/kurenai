@@ -22,6 +22,25 @@ class DocumentParser
     const META_SPLITTER = '/:/';
 
     /**
+     * Document object resolver
+     *
+     * @var callable $callback
+     */
+    protected $documentResolver;
+
+    /**
+     * Instantiate an instance optionally passing in a Documemt object resolver.
+     */
+    public function __construct(callable $documentResolver = null)
+    {
+        if ($documentResolver === null) {
+            $this->documentResolver = function() { return new Document; };
+        } else {
+            $this->documentResolver = $documentResolver;
+        }
+    }
+
+    /**
      * Parse a markdown document with metadata.
      *
      * @param  string $source
@@ -43,7 +62,7 @@ class DocumentParser
      */
     public function buildDocument($content, $metadata)
     {
-        $document = new Document();
+        $document = call_user_func($this->documentResolver);
         $document->setContent($content);
         $document->set($metadata);
         return $document;
