@@ -60,7 +60,7 @@ class DocumentParser
      * @param  array  $metadata
      * @return Document
      */
-    public function buildDocument($content, $metadata)
+    public function buildDocument($content, array $metadata)
     {
         $document = call_user_func($this->documentResolver);
         $document->setContent($content);
