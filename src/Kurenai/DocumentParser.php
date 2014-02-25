@@ -31,7 +31,7 @@ class DocumentParser
     /**
      * Instantiate an instance optionally passing in a Documemt object resolver.
      */
-    public function __construct(callable $documentResolver = null)
+    public function __construct($documentResolver = null)
     {
         if ($documentResolver === null) {
             $this->documentResolver = function() { return new Document; };
