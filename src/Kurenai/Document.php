@@ -19,14 +19,16 @@ class Document
     protected $metadata = array();
 
     /**
-     * An Kurenai\MarkdownParserInterface implementation
+     * A Kurenai\MarkdownParserInterface implementation
      *
-     * @var Kurenai\MarkdownParserInterface
+     * @var MarkdownParserInterface
      */
     protected $markdownParser;
 
     /**
      * Instantiate an instance optionally injecting a markdown parser implementation.
+     *
+     * @param MarkdownParserInterface $markdownParser
      */
     public function __construct(MarkdownParserInterface $markdownParser = null) {
         if ($markdownParser === null) {
@@ -65,7 +67,7 @@ class Document
      */
     public function getHtmlContent()
     {
-        return $this->markdownParser->transformMarkdown($this->content);
+        return $this->markdownParser->render($this->content);
     }
 
     /**

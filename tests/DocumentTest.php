@@ -56,4 +56,21 @@ class DocumentTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('Boo', $d->get('Baz'));
         $this->assertEquals(array('Foo' => 'Bar', 'Baz' => 'Boo'), $d->get());
     }
+
+    public function testDocumentCanUseCustomParser()
+    {
+        $document = new Document(new ParserStub());
+        $this->assertEquals('Rendered content.', $document->getHtmlContent());
+    }
+}
+
+/**
+ * This class should be a stub implementation for the MarkdownParserInterface.
+ */
+class ParserStub implements \Kurenai\MarkdownParserInterface
+{
+    public function render($content)
+    {
+        return 'Rendered content.';
+    }
 }
