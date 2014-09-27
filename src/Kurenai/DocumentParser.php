@@ -30,6 +30,8 @@ class DocumentParser
 
     /**
      * Instantiate an instance optionally passing in a Documemt object resolver.
+     *
+     * @param callable $documentResolver
      */
     public function __construct($documentResolver = null)
     {
@@ -94,7 +96,8 @@ class DocumentParser
      * Parse a dection of the document.
      *
      * @param  string $source
-     * @param  int    $offset
+     * @param  int $offset
+     * @throws TooFewSectionsException
      * @return string
      */
     public function parseSection($source, $offset)
