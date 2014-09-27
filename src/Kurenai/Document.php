@@ -65,7 +65,7 @@ class Document
      */
     public function getHtmlContent()
     {
-        return $this->markdownParser->transformMarkdown($this->content);
+        return $this->markdownParser->render($this->content);
     }
 
     /**
