@@ -18,7 +18,7 @@ class ParsedownParserTest extends PHPUnit_Framework_TestCase
     {
         $document = new Document(new ParsedownMarkdownExtra);
         $document->setContent("~~~\nCode Block\n~~~");
-        $expected = "<pre><code>Code Block\n</code></pre>";
+        $expected = "<pre><code>Code Block</code></pre>";
         $this->assertEquals($expected, $document->getHtmlContent(true));
     }
 }
