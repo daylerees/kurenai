@@ -30,9 +30,10 @@ class Document
      *
      * @param MarkdownParserInterface $markdownParser
      */
-    public function __construct(MarkdownParserInterface $markdownParser = null) {
+    public function __construct(MarkdownParserInterface $markdownParser = null)
+    {
         if ($markdownParser === null) {
-            $this->markdownParser = new Parser\DflydevMarkdown;
+            $this->markdownParser = new Parser\ParsedownMarkdown;
         } else {
             $this->markdownParser = $markdownParser;
         }

@@ -1,7 +1,6 @@
 <?php
 
 use Kurenai\Document;
-use Kurenai\Parser\DflydevMarkdownExtra;
 
 class DocumentTest extends PHPUnit_Framework_TestCase
 {
@@ -16,22 +15,6 @@ class DocumentTest extends PHPUnit_Framework_TestCase
         $d = new Document();
         $d->setContent('Foo');
         $this->assertEquals('Foo', $d->getContent());
-    }
-
-    public function testDocumentHtmlContentCanBeReturned()
-    {
-        $d = new Document();
-        $d->setContent('Foo **Bar** Baz');
-        $e = "<p>Foo <strong>Bar</strong> Baz</p>\n";
-        $this->assertEquals($e, $d->getHtmlContent());
-    }
-
-    public function testDocumentCanParseExtraMarkdown()
-    {
-        $document = new Document(new DflydevMarkdownExtra);
-        $document->setContent("~~~\nCode Block\n~~~");
-        $expected = "<pre><code>Code Block\n</code></pre>\n";
-        $this->assertEquals($expected, $document->getHtmlContent(true));
     }
 
     public function testDocumentMetadataCanBeSet()
