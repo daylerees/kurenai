@@ -8,10 +8,12 @@
     },
     "require-dev": {
         "phpunit/phpunit": "4.*",
-        "dflydev/markdown": "1.0.*"
+        "dflydev/markdown": "1.0.*",
+        "league/commonmark": "0.5.*"
     },
     "suggest": {
-        "dflydev/markdown": "Parsing markdown using dflydev/markdown"
+        "dflydev/markdown": "Parsing markdown using dflydev/markdown",
+        "league/commonmark": "Parsing markdown using league/commonmark"
     },
     "autoload": {
         "psr-0": {
