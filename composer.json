@@ -4,7 +4,7 @@
     "keywords":     ["kurenai", "markdown", "metadata", "document", "daylerees"],
     "license":      "MIT",
     "require": {
-        "erusev/parsedown-extra": "0.2.*"
+        "erusev/parsedown-extra": "~0.2"
     },
     "require-dev": {
         "phpunit/phpunit": "4.*",
