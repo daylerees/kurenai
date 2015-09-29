@@ -54,7 +54,7 @@ $slug = $document->get('slug');
 
 Kurenai was intended for use with flat file publishing solutions.
 
-Kurenai is availabe on packagist as [daylerees/kurenai](https://packagist.org/packages/daylerees/kurenai).
+Kurenai is available on packagist as [daylerees/kurenai](https://packagist.org/packages/daylerees/kurenai).
 
 The package is copyright (c) 2013 Dayle Rees and released under the MIT License [<http://opensource.org/licenses/MIT>](http://opensource.org/licenses/MIT).
 
