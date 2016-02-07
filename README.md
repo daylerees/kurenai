@@ -46,7 +46,10 @@ Well hello there, world!
 Formats for metadata and content are interchangable using classes called parsers. First, let's create our parser instance.
 
 ```php
-$kurenai = new \Kurenai\Parser(new \Kurenai\Parsers\Metadata\JsonParser, new \Kurenai\Parsers\Content\MarkdownParser);
+$kurenai = new \Kurenai\Parser(
+    new \Kurenai\Parsers\Metadata\JsonParser,
+    new \Kurenai\Parsers\Content\MarkdownParser
+);
 ```
 
 In the above example, we're using a JSON metadata parser, and a Markdown content parser. We can now parse a document.
@@ -81,8 +84,20 @@ This will get the content of the document, rendered using the provided content p
 $document->get('foo.bar');
 ```
 
-The `get()` method uses dot-notation to return a metadata value. For example, the above example would be equivalent to fetching `$metada['foo']['bar']`.
+The `get()` method uses dot-notation to return a metadata value. For example, the above example would be equivalent to fetching `$metadata['foo']['bar']`.
 
 If the subject can't be found, `null` will be returned. You can supply a default value as a second parameter to the method.
 
+## Metadata Parsers
+
+- `Kurenai\Parsers\Metdata\JsonParser` - JSON decode PHP native function.
+- `Kurenai\Parsers\Metdata\YamlParser` - Symfony YAML parser.
+
+## Content Parsers
+
+- `Kurenai\Parsers\Content\PlaintextParser` - Plain text, no parsing.
+- `Kurenai\Parsers\Content\MarkdownParser` - Markdown (michelf)
+- `Kurenai\Parsers\Content\MarkdownExtraParser` - Markdown Extra (michelf)
+
 Enjoy using Kurenai!
+
