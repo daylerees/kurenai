@@ -16,6 +16,7 @@
   },
   "require": {
     "michelf/php-markdown": "^1.6",
-    "symfony/yaml": "^3.0"
+    "symfony/yaml": "^3.0",
+    "illuminate/support": "^5.2"
   }
 }

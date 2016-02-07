@@ -2,6 +2,8 @@
 
 namespace Kurenai;
 
+use Illuminate\Support\Arr;
+
 /**
  * Class Document
  *
@@ -84,20 +86,6 @@ class Document
      */
     public function get($key, $default = null)
     {
-        $array = $this->metadata;
-
-        if (is_null($key)) {
-            return $array;
-        }
-        if (isset($array[$key])) {
-            return $array[$key];
-        }
-        foreach (explode('.', $key) as $segment) {
-            if (! is_array($array) || ! array_key_exists($segment, $array)) {
-                return $default;
-            }
-            $array = $array[$segment];
-        }
-        return $array;
+        return Arr::get($this->metadata, $key, $default);
     }
 }
