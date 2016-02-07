@@ -92,14 +92,20 @@ If the subject can't be found, `null` will be returned. You can supply a default
 
 ## Metadata Parsers
 
-- `Kurenai\Parsers\Metdata\JsonParser` - JSON decode PHP native function.
-- `Kurenai\Parsers\Metdata\YamlParser` - Symfony YAML parser.
+| Format | Install Package | Class                                |
+|--------|-----------------|--------------------------------------|
+| JSON   | N/A             | `Kurenai\Parsers\Metdata\JsonParser` |
+| YAML   | `symfony/yaml`  | `Kurenai\Parsers\Metdata\YamlParser` |
 
 ## Content Parsers
 
-- `Kurenai\Parsers\Content\PlaintextParser` - Plain text, no parsing.
-- `Kurenai\Parsers\Content\MarkdownParser` - Markdown (michelf)
-- `Kurenai\Parsers\Content\MarkdownExtraParser` - Markdown Extra (michelf)
+| Format                      | Install Package        | Class                                         |
+|-----------------------------|------------------------|-----------------------------------------------|
+| Plaintext (no parsing)      | N/A                    | `Kurenai\Parsers\Content\PlaintextParser`     |
+| Markdown                    | `michelf/php-markdown` | `Kurenai\Parsers\Content\MarkdownParser`      |
+| Markdown Extra              | `michelf/php-markdown` | `Kurenai\Parsers\Content\MarkdownExtraParser` |
+| Parsedown (Github Markdown) | `erusev/parsedown`     | `Kurenai\Parsers\Content\ParsedownParser`     |
+| Textile                     | `netcarver/textile`    | `Kurenai\Parsers\Content\TextileParser`       |
 
 Enjoy using Kurenai!
 
