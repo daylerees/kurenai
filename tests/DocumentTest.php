@@ -4,56 +4,39 @@ use Kurenai\Document;
 
 class DocumentTest extends PHPUnit_Framework_TestCase
 {
-    public function testDocumentCanBeCreated()
+    public function test_document_can_be_created()
     {
-        $d = new Document();
-        $this->assertTrue($d instanceof Document);
+        $d = new Document('foo', 'bar', 'baz');
+        $this->assertInstanceOf(Document::class, $d);
     }
 
-    public function testDocumentContentCanBeSet()
+    public function test_document_can_hold_raw_data()
     {
-        $d = new Document();
-        $d->setContent('Foo');
-        $this->assertEquals('Foo', $d->getContent());
+        $d = new Document('foo', 'bar', 'baz');
+        $this->assertEquals('foo', $d->getRaw());
     }
 
-    public function testDocumentMetadataCanBeSet()
+    public function test_document_can_hold_metadata()
     {
-        $d = new Document();
-        $d->set(array('Foo' => 'Bar'));
-        $this->assertCount(1, $d->get());
-        $this->assertEquals('Bar', $d->get('Foo'));
-        $this->assertEquals(array('Foo' => 'Bar'), $d->get());
+        $d = new Document('foo', 'bar', 'baz');
+        $this->assertEquals('bar', $d->getMetadata());
     }
 
-    public function testDocumentMetadataCanBeAdded()
+    public function test_document_can_hold_content()
     {
-        $d = new Document();
-        $d->add('Foo', 'Bar');
-        $this->assertCount(1, $d->get());
-        $this->assertEquals('Bar', $d->get('Foo'));
-        $this->assertEquals(array('Foo' => 'Bar'), $d->get());
-        $d->add('Baz', 'Boo');
-        $this->assertCount(2, $d->get());
-        $this->assertEquals('Bar', $d->get('Foo'));
-        $this->assertEquals('Boo', $d->get('Baz'));
-        $this->assertEquals(array('Foo' => 'Bar', 'Baz' => 'Boo'), $d->get());
+        $d = new Document('foo', 'bar', 'baz');
+        $this->assertEquals('baz', $d->getContent());
     }
 
-    public function testDocumentCanUseCustomParser()
+    public function test_document_can_fetch_metadata_by_dot_notation()
     {
-        $document = new Document(new ParserStub());
-        $this->assertEquals('Rendered content.', $document->getHtmlContent());
+        $d = new Document('foo', ['foo' => ['bar' => 'baz']], 'baz');
+        $this->assertEquals('baz', $d->get('foo.bar'));
     }
-}
 
-/**
- * This class should be a stub implementation for the MarkdownParserInterface.
- */
-class ParserStub implements \Kurenai\MarkdownParserInterface
-{
-    public function render($content)
+    public function test_document_can_fetch_metadata_by_dot_notation_with_default_value()
     {
-        return 'Rendered content.';
+        $d = new Document('foo', [], 'baz');
+        $this->assertEquals('boo', $d->get('foo.bar', 'boo'));
     }
 }

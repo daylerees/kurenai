@@ -1,3 +1,0 @@
-metadata section
---------
-content section
