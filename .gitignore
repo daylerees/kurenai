@@ -1,5 +1,5 @@
-/vendor
-/build
-composer.phar
+.idea
+vendor
 composer.lock
 .DS_Store
+coverage

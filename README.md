@@ -1,61 +1,88 @@
-[![Build Status](https://travis-ci.org/daylerees/kurenai.png)](https://travis-ci.org/daylerees/kurenai.png)
-
 # Kurenai
 
-Kurenai is a Markdown document parser which allows for extra metadata to be associated with the document.
+[![Build Status](https://travis-ci.org/daylerees/kurenai.svg?branch=master)](https://travis-ci.org/daylerees/kurenai)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/daylerees/kurenai/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/daylerees/kurenai/?branch=master)
+[![Code Coverage](https://scrutinizer-ci.com/g/daylerees/kurenai/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/daylerees/kurenai/?branch=master)
+[![Code Climate](https://codeclimate.com/github/daylerees/kurenai/badges/gpa.svg)](https://codeclimate.com/github/daylerees/kurenai)
+[![HHVM Tested](https://img.shields.io/hhvm/daylerees/kurenai.svg)](https://travis-ci.org/daylerees/kurenai)
 
-Confused? Let's take a look at how it works.
+[![Packagist Version](https://img.shields.io/packagist/v/daylerees/kurenai.svg)](https://packagist.org/packages/daylerees/kurenai)
+[![Packagist](https://img.shields.io/packagist/dt/daylerees/kurenai.svg)](https://packagist.org/packages/daylerees/kurenai)
 
-This is what your documents might look like:
+Kurenai is a document with metadata parsing library for PHP. It supports a variety of different document content and metadata parsers.
 
-    title: This is my document title.
-    slug: this-is-the-slug
-    date: 12th December 1984
-    -------
-    This is my **markdown** content!
+---
 
-and here is how you will parse it with Kurenai :
+## Installation
 
-```php
-<?php
+Kurenai is available on [Packagist](https://packagist.org/packages/daylerees/kurenai) for [Composer](https://getcomposer.org/).
 
-// Use the Kurenai document parser.
-use Kurenai\DocumentParser;
+    composer require daylerees/kurenai
+    
+## Usage
 
-// Load our document source.
-$source = file_get_contents('my_document.md');
+Kurenai documents look like this:
 
-// Create a new document parser
-$parser = new DocumentParser;
-
-// Parse the loaded source.
-$document = $parser->parse($source);
-
-// To get the document content in raw markdown format..
-// This is my **markdown** content!
-$rawMarkdown = $document->getContent();
-
-// To get the converted HTML content..
-// <p>This is my <strong>markdown</strong> content!</p>
-$html = $document->getHtmlContent();
-
-// To access the full array of metadata
-// array(
-//      'title'     => 'This is my document title.',
-//      'slug'      => 'this-is-the-slug',
-//      'date'      => '12th December 1984'
-// );
-$metadata = $document->get();
-
-// To access a piece of metadata by key (default: null)..
-// this-is-the-slug
-$slug = $document->get('slug');
+```
+Some form of metadata here.
+===
+Some form of content here.
 ```
 
-Kurenai was intended for use with flat file publishing solutions.
+A metadata section, and a content section seperated by three equals `===` signs or more.
 
-Kurenai is available on packagist as [daylerees/kurenai](https://packagist.org/packages/daylerees/kurenai).
+Here's an example using JSON for metadata, and Markdown for content.
 
-The package is copyright (c) 2013 Dayle Rees and released under the MIT License [<http://opensource.org/licenses/MIT>](http://opensource.org/licenses/MIT).
+```
+{
+    "title": "Hello world!"
+}
+===
+# Hello World
 
-Enjoy!
+Well hello there, world!
+```
+
+Formats for metadata and content are interchangable using classes called parsers. First, let's create our parser instance.
+
+```php
+$kurenai = new \Kurenai\Parser(new \Kurenai\Parsers\Metadata\JsonParser, new \Kurenai\Parsers\Content\MarkdownParser);
+```
+
+In the above example, we're using a JSON metadata parser, and a Markdown content parser. We can now parse a document.
+
+```php
+$document = $kurenai->parse('path/to/document.md');
+```
+
+Our documents can have any filename or extension. You can also pass the `parse()` function the content of a document directly.
+
+The document instance has a few useful methods.
+
+```php
+$document->getRaw();
+```
+
+This will fetch the raw document content. Before Kurenai parsed it.
+
+```php
+$document->getMetadata();
+```
+
+This will fetch the metadata, parsed into an array.
+
+```php
+$document->getContent();
+```
+
+This will get the content of the document, rendered using the provided content parser.
+
+```php
+$document->get('foo.bar');
+```
+
+The `get()` method uses dot-notation to return a metadata value. For example, the above example would be equivalent to fetching `$metada['foo']['bar']`.
+
+If the subject can't be found, `null` will be returned. You can supply a default value as a second parameter to the method.
+
+Enjoy using Kurenai!
