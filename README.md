@@ -81,7 +81,7 @@ This will get the content of the document, rendered using the provided content p
 $document->get('foo.bar');
 ```
 
-The `get()` method uses dot-notation to return a metadata value. For example, the above example would be equivelent to fetching `$metada['foo']['bar']`.
+The `get()` method uses dot-notation to return a metadata value. For example, the above example would be equivalent to fetching `$metada['foo']['bar']`.
 
 If the subject can't be found, `null` will be returned. You can supply a default value as a second parameter to the method.
 
