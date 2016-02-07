@@ -96,6 +96,7 @@ If the subject can't be found, `null` will be returned. You can supply a default
 |--------|-----------------|--------------------------------------|
 | JSON   | N/A             | `Kurenai\Parsers\Metdata\JsonParser` |
 | YAML   | `symfony/yaml`  | `Kurenai\Parsers\Metdata\YamlParser` |
+| INI    | N/A             | `Kurenai\Parsers\Metdata\IniParser`  |
 
 ## Content Parsers
 
