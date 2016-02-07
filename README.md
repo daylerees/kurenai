@@ -1,3 +1,5 @@
+[![Kurenai](kurenai.png)](https://github.com/daylerees/kurenai)
+
 # Kurenai
 
 [![Build Status](https://travis-ci.org/daylerees/kurenai.svg?branch=master)](https://travis-ci.org/daylerees/kurenai)
