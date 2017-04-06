@@ -3,7 +3,16 @@ pipeline {
   stages {
     stage('Sleepy time!') {
       steps {
-        sleep 10
+        parallel(
+          "Sleepy time!": {
+            sleep 10
+            
+          },
+          "": {
+            echo 'Yawn!'
+            
+          }
+        )
       }
     }
     stage('Output!') {
