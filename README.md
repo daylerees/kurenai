@@ -102,7 +102,7 @@ If the subject can't be found, `null` will be returned. You can supply a default
 
 | Format                      | Install Package        | Class                                         |
 |-----------------------------|------------------------|-----------------------------------------------|
-| Plaintext (no parsing)      | N/A                    | `Kurenai\Parsers\Content\PlaintextParser`     |
+| Plaintext (no parsing)      | N/A                    | `Kurenai\Parsers\Content\PlainTextParser`     |
 | Markdown                    | `michelf/php-markdown` | `Kurenai\Parsers\Content\MarkdownParser`      |
 | Markdown Extra              | `michelf/php-markdown` | `Kurenai\Parsers\Content\MarkdownExtraParser` |
 | Parsedown (Github Markdown) | `erusev/parsedown`     | `Kurenai\Parsers\Content\ParsedownParser`     |
