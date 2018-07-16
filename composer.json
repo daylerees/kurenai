@@ -8,6 +8,10 @@
       "Kurenai\\": "src"
     }
   },
+  "require": {
+    "php": ">=5.6.5",
+    "illuminate/support": "^5.2"
+  },
   "require-dev": {
     "erusev/parsedown": "^1.6",
     "jakub-onderka/php-parallel-lint": "^0.9.2",
@@ -18,9 +22,6 @@
     "phpunit/phpunit": ">=4.8",
     "squizlabs/php_codesniffer": "^2.5",
     "symfony/yaml": "^3.0"
-  },
-  "require": {
-    "illuminate/support": "^5.2"
   },
   "suggest": {
     "erusev/parsedown": "Allow for Parsedown markdown parsing.",
