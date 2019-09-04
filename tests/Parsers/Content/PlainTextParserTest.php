@@ -1,8 +1,9 @@
 <?php
 
 use Kurenai\Parsers\Content\PlainTextParser;
+use PHPUnit\Framework\TestCase;
 
-class PlainTextParserTest extends PHPUnit_Framework_TestCase
+class PlainTextParserTest extends TestCase
 {
     public function test_plain_text_parser_can_be_created()
     {

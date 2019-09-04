@@ -1,8 +1,9 @@
 <?php
 
 use Kurenai\Parsers\Content\TextileParser;
+use PHPUnit\Framework\TestCase;
 
-class TextileParserTest extends PHPUnit_Framework_TestCase
+class TextileParserTest extends TestCase
 {
     public function test_textile_parser_can_be_created()
     {

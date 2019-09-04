@@ -21,6 +21,6 @@ class TextileParser implements ContentParser
      */
     public function parse($content)
     {
-        return (new Parser)->textileThis($content);
+        return (new Parser)->parse($content);
     }
 }

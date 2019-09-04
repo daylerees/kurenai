@@ -1,8 +1,9 @@
 <?php
 
 use Kurenai\Document;
+use PHPUnit\Framework\TestCase;
 
-class DocumentTest extends PHPUnit_Framework_TestCase
+class DocumentTest extends TestCase
 {
     public function test_document_can_be_created()
     {
