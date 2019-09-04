@@ -1,8 +1,9 @@
 <?php
 
 use Kurenai\Parsers\Metadata\IniParser;
+use PHPUnit\Framework\TestCase;
 
-class IniParserTest extends PHPUnit_Framework_TestCase
+class IniParserTest extends TestCase
 {
     public function test_ini_parser_can_be_created()
     {
@@ -14,7 +15,7 @@ class IniParserTest extends PHPUnit_Framework_TestCase
     {
         $p = new IniParser();
         $v = $p->parse('foo=bar');
-        $this->assertInternalType('array', $v);
+        $this->assertIsArray($v);
         $this->assertArrayHasKey('foo', $v);
         $this->assertEquals('bar', $v['foo']);
     }

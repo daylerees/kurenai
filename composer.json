@@ -10,7 +10,7 @@
   },
   "require": {
     "php": ">=5.6.5",
-    "illuminate/support": "^5.2"
+    "illuminate/support": "^5.2|^6.0"
   },
   "require-dev": {
     "erusev/parsedown": "^1.6",

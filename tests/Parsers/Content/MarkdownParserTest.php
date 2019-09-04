@@ -1,8 +1,9 @@
 <?php
 
 use Kurenai\Parsers\Content\MarkdownParser;
+use PHPUnit\Framework\TestCase;
 
-class MarkdownParserTest extends PHPUnit_Framework_TestCase
+class MarkdownParserTest extends TestCase
 {
     public function test_markdown_parser_can_be_created()
     {
