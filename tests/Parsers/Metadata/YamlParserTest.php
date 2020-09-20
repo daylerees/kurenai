@@ -1,8 +1,9 @@
 <?php
 
+use PHPUnit\Framework\TestCase;
 use Kurenai\Parsers\Metadata\YamlParser;
 
-class YamlParserTest extends PHPUnit_Framework_TestCase
+class YamlParserTest extends TestCase
 {
     public function test_yaml_parser_can_be_created()
     {
@@ -14,7 +15,7 @@ class YamlParserTest extends PHPUnit_Framework_TestCase
     {
         $p = new YamlParser;
         $v = $p->parse('foo: bar');
-        $this->assertInternalType('array', $v);
+        $this->assertIsArray($v);
         $this->assertArrayHasKey('foo', $v);
         $this->assertEquals('bar', $v['foo']);
     }

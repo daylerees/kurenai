@@ -1,8 +1,9 @@
 <?php
 
+use PHPUnit\Framework\TestCase;
 use Kurenai\Parsers\Metadata\JsonParser;
 
-class JsonParserTest extends PHPUnit_Framework_TestCase
+class JsonParserTest extends TestCase
 {
     public function test_json_parser_can_be_created()
     {
@@ -14,7 +15,7 @@ class JsonParserTest extends PHPUnit_Framework_TestCase
     {
         $p = new JsonParser;
         $v = $p->parse('{"foo":"bar"}');
-        $this->assertInternalType('array', $v);
+        $this->assertIsArray($v);
         $this->assertArrayHasKey('foo', $v);
         $this->assertEquals('bar', $v['foo']);
     }
