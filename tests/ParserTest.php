@@ -2,10 +2,11 @@
 
 use Kurenai\Parser;
 use Kurenai\Document;
+use PHPUnit\Framework\TestCase;
 use Kurenai\Parsers\Metadata\JsonParser;
 use Kurenai\Parsers\Content\PlainTextParser;
 
-class ParserTest extends PHPUnit_Framework_TestCase
+class ParserTest extends TestCase
 {
     public function test_parser_can_be_created()
     {

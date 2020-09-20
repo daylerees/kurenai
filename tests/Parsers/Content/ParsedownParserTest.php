@@ -1,8 +1,9 @@
 <?php
 
+use PHPUnit\Framework\TestCase;
 use Kurenai\Parsers\Content\ParsedownParser;
 
-class ParsedownParserTest extends PHPUnit_Framework_TestCase
+class ParsedownParserTest extends TestCase
 {
     public function test_parsedown_parser_can_be_created()
     {
