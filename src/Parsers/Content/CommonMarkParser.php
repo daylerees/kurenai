@@ -2,9 +2,10 @@
 
 namespace Kurenai\Parsers\Content;
 
+use Kurenai\Contracts\ContentParser;
 use League\CommonMark\CommonMarkConverter;
 
-class CommonMarkParser
+class CommonMarkParser implements ContentParser
 {
     /**
      * @param string $markdown
